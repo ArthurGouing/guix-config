@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Spotify
+GenericName=Music
+Comment=Audio provider
+TryExec=zen --blank-window https://open.spotify.com/
+Exec=zen --blank-window https://open.spotify.com/
+Icon=/home/arthos/.config/icon/Kitty.png
+Categories=AudioVideo;Audio;
