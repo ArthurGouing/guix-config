@@ -18,6 +18,7 @@
   ;; Below is the list of packages that will show up in your
   ;; Home profile, under ~/.guix-home/profile.
   (packages (specifications->packages (list "coreutils"
+                                            "direnv"
                                             "emacs"
                                             "git"
                                             "gawk"

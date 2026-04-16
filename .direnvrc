@@ -1,0 +1,14 @@
+use_guix() {
+  local cache_dir=".guix-profile"
+  # delete =.guix-profile= if =manifest.scm= is newer
+  # bash test builtin dereferences links, using =find=
+  if [[ -e $cache_dir && $(find manifest.scm -prune -newer $cache_dir) ]]; then
+    rm $cache_dir
+  fi
+  if [[ -e "$cache_dir/etc/profile" ]]; then
+    source "$cache_dir/etc/profile"
+  else
+    echo "direnvrc: building $cache_dir"
+    eval "$(guix shell -m manifest.scm -r "$cache_dir" "$@" --search-paths)"
+  fi
+}
