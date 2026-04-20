@@ -11,8 +11,9 @@
              (gnu home services)
              (gnu home services shells)
              (gnu home services dotfiles)
-             ;; (gnu home services dconf)
+             (atlas home services dconf)
 )
+
 
 (home-environment
   ;; Below is the list of packages that will show up in your
@@ -22,6 +23,7 @@
                                             "emacs"
                                             "git"
                                             "gawk"
+                                            "fish"
                                             "kitty"
                                             "neovim"
                                             "vim"
@@ -39,16 +41,18 @@
                            ;; (bash-logout (list (local-file ".bash_logout" "bash_logout"))))
   )) ;; bashrc
 
+
   (service home-dotfiles-service-type
         (home-dotfiles-configuration
           (directories `("./dotfiles")))
   ) ;; dotfiles
+
   
-  ;; Kitty Configurations ;;
-  (service home-files-service-type
-  `((".local/share/applications/kitty.desktop"
-     ,(local-file "applications/kitty.desktop")))
-  ) ;; kitty desktop
+  ;; Application Configurations
+  ;; (service home-files-service-type
+  ;; `((".local/share/applications/kitty.desktop"
+  ;;    ,(local-file "applications/kitty.desktop")))
+  ;; ) ;; kitty desktop  // ERROR: should script to load icon fom home
 
 
  ));; services
